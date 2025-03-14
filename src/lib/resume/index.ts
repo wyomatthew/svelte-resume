@@ -1,8 +1,8 @@
 import { z } from 'zod';
 
 export const iso8601Schema = z
-	.string()
-	.regex(/^([1-2][0-9]{3}-[0-1][0-9]-[0-3][0-9]|[1-2][0-9]{3}-[0-1][0-9]|[1-2][0-9]{3})$/)
+	.coerce
+	.date()
 	.describe('ISO8601 date format: YYYY, YYYY-MM, or YYYY-MM-DD');
 
 export const profileItemSchema = z.object({
@@ -26,7 +26,7 @@ export const basicsSchema = z.object({
 	email: z.string().email().describe('e.g. thomas@gmail.com'),
 	phone: z.string().describe('Phone number in any format, e.g. 712-117-2923'),
 	url: z.string().url().describe('URL to your website, e.g., personal homepage'),
-	summary: z.string().describe('Short biography, 2-3 sentences.'),
+	summary: z.string().describe('Short biography, 2-3 sentences.').optional(),
 	location: locationSchema.optional(),
 	profiles: z.array(profileItemSchema).optional()
 });
@@ -34,12 +34,12 @@ export const basicsSchema = z.object({
 export const workItemSchema = z.object({
 	name: z.string().describe('e.g. Facebook'),
 	location: z.string().describe('e.g. Menlo Park, CA'),
-	description: z.string().describe('e.g. Social Media Company'),
+	description: z.string().describe('e.g. Social Media Company').optional(),
 	position: z.string().describe('e.g. Software Engineer'),
 	url: z.string().url().describe('e.g. http://facebook.example.com'),
 	startDate: iso8601Schema.optional(),
 	endDate: iso8601Schema.optional(),
-	summary: z.string().describe('Give an overview of your responsibilities at the company'),
+	summary: z.string().describe('Give an overview of your responsibilities at the company').optional(),
 	highlights: z
 		.array(
 			z.string().describe('e.g. Increased profits by 20% from 2011-2012 through viral advertising')
@@ -153,7 +153,7 @@ export const metaSchema = z.object({
 });
 
 export const resumeSchema = z.object({
-	basics: basicsSchema.optional(),
+	basics: basicsSchema,
 	work: z.array(workItemSchema).optional(),
 	volunteer: z.array(volunteerItemSchema).optional(),
 	education: z.array(educationItemSchema).optional(),
