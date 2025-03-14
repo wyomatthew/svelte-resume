@@ -3,6 +3,7 @@
 @plugin '@tailwindcss/typography';
 
 html {
-	font-size: 1rem;
+	font-size: 0.85rem;
 	line-height: 1.3rem;
+	letter-spacing: default;
 }

@@ -8,13 +8,15 @@
 </script>
 
 {#snippet dateRange({ startDate, endDate }: { startDate: Date; endDate: Date | undefined })}
-	<DateStr date={startDate} />
-	-
-	{#if endDate}
-		<DateStr date={endDate} />
-	{:else}
-		current
-	{/if}
+	<span class="italic">
+		<DateStr date={startDate} />
+		-
+		{#if endDate}
+			<DateStr date={endDate} />
+		{:else}
+			current
+		{/if}
+	</span>
 {/snippet}
 
 <div class="mx-auto h-full max-w-[8.5in] p-[0.3in] font-serif">
