@@ -22,7 +22,7 @@ export const locationSchema = z.object({
 export const basicsSchema = z.object({
 	name: z.string(),
 	label: z.string().describe('e.g. Web Developer'),
-	image: z.string().url().describe('URL to a JPEG or PNG image'),
+	image: z.string().url().describe('URL to a JPEG or PNG image').optional(),
 	email: z.string().email().describe('e.g. thomas@gmail.com'),
 	phone: z.string().describe('Phone number in any format, e.g. 712-117-2923'),
 	url: z.string().url().describe('URL to your website, e.g., personal homepage'),
@@ -167,3 +167,5 @@ export const resumeSchema = z.object({
 	projects: z.array(projectItemSchema).optional(),
 	meta: metaSchema
 });
+
+export type Resume = z.infer<typeof resumeSchema>;
