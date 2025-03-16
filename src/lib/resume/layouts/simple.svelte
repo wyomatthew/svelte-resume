@@ -4,6 +4,9 @@
 	import DateStr from '../components/date_str.svelte';
 
 	const { resumeData }: { resumeData: ResumeData } = $props();
+	const keywordSplitPoint = Math.ceil(resumeData.keywords.length / 2);
+	const leftKeywords = resumeData.keywords.slice(0, keywordSplitPoint);
+	const rightKeywords = resumeData.keywords.slice(keywordSplitPoint);
 </script>
 
 {#snippet dateRange({ startDate, endDate }: { startDate: Date; endDate: Date | undefined })}
@@ -20,9 +23,16 @@
 
 <div class="relative mx-auto h-full max-w-[8.5in] font-serif">
 	<div
-		class="bg-opacity-50 absolute text-[0.1rem] leading-0.5 text-white select-none [writing-mode:vertical-lr]"
+		class="absolute z-[-1] h-full w-full text-[0.1rem] leading-0.5 text-white [writing-mode:vertical-lr]"
 	>
-		{resumeData.keywords.join(' ')}
+		<div class="relative w-full">
+			<div class="absolute top-0 left-0 text-justify select-none">
+				{leftKeywords.join(' ')}
+			</div>
+			<div class="absolute top-0 right-0 text-justify select-none">
+				{rightKeywords.join(' ')}
+			</div>
+		</div>
 	</div>
 	<div class="p-[0.3in]">
 		<div id="header" class="text-center">
