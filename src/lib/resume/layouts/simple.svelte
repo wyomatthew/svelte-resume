@@ -9,6 +9,55 @@
 	const rightKeywords = resumeData.keywords.slice(keywordSplitPoint);
 </script>
 
+{#snippet item({
+	header,
+	subheader,
+	location,
+	startDate,
+	endDate,
+	url,
+	highlights
+}: {
+	header: string;
+	subheader: string | undefined;
+	location: string | undefined;
+	startDate: Date | undefined;
+	endDate: Date | undefined;
+	url: string | undefined;
+	highlights: string[] | undefined;
+})}
+	<div class="flex flex-row items-end justify-between">
+		<div>
+			{#if url}
+				<a href={url}>
+					<span class="text-lg font-semibold">{header}</span>
+				</a>
+			{:else}
+				<span class="text-lg font-semibold">{header}</span>
+			{/if}
+			&nbsp; <span class="italic">{subheader}</span>
+		</div>
+		<div>
+			{#if location}
+				<span class="font-semibold">{location}</span>
+			{/if}
+			{#if location && startDate}
+				&nbsp;
+			{/if}
+			{#if startDate}
+				{@render dateRange({ startDate, endDate })}
+			{/if}
+		</div>
+	</div>
+	{#if highlights}
+		<ul class="list-disc pl-4 text-justify">
+			{#each highlights as highlight}
+				<li>{highlight}</li>
+			{/each}
+		</ul>
+	{/if}
+{/snippet}
+
 {#snippet dateRange({ startDate, endDate }: { startDate: Date; endDate: Date | undefined })}
 	<span class="italic">
 		<DateStr date={startDate} />
@@ -18,6 +67,12 @@
 		{:else}
 			current
 		{/if}
+	</span>
+{/snippet}
+
+{#snippet location({ location }: { location: string })}
+	<span class="bold">
+		{location}
 	</span>
 {/snippet}
 
@@ -64,22 +119,15 @@
 			<Section title="Education">
 				{#each resumeData.resume.education as education}
 					<div>
-						<div class="flex flex-row items-end justify-between">
-							<div>
-								<span class="text-lg font-semibold"
-									><a href={education.url}>{education.institution}</a></span
-								>
-								<span class="italic">{education.studyType} of {education.area}</span>
-							</div>
-							{#if education.startDate}
-								<div>
-									{@render dateRange({
-										startDate: education.startDate,
-										endDate: education.endDate
-									})}
-								</div>
-							{/if}
-						</div>
+						{@render item({
+							header: education.institution,
+							subheader: `${education.studyType} of ${education.area}`,
+							startDate: education.startDate,
+							endDate: education.endDate,
+							url: education.url,
+							location: undefined,
+							highlights: []
+						})}
 						<div class="pl-4">
 							<ul class="flex flex-col items-start justify-start">
 								<li>Final result: {education.score}</li>
@@ -96,28 +144,15 @@
 		{#if resumeData.resume.work}
 			<Section title="Experience">
 				{#each resumeData.resume.work as work}
-					<div class="flex flex-row items-end justify-between">
-						<div>
-							<span class="text-lg font-semibold"><a href={work.url}>{work.name}</a></span>
-							<span class="italic">{work.position}</span>
-						</div>
-						<div>
-							{#if work.startDate}
-								<div>
-									{@render dateRange({ startDate: work.startDate, endDate: work.endDate })}
-								</div>
-							{/if}
-						</div>
-					</div>
-					{#if work.highlights}
-						<div class="pl-4">
-							<ul class="list-disc text-justify">
-								{#each work.highlights as highlight}
-									<li>{highlight}</li>
-								{/each}
-							</ul>
-						</div>
-					{/if}
+					{@render item({
+						header: work.name,
+						subheader: work.position,
+						location: work.location,
+						startDate: work.startDate,
+						endDate: work.endDate,
+						url: work.url,
+						highlights: work.highlights
+					})}
 				{/each}
 			</Section>
 		{/if}
@@ -125,28 +160,15 @@
 		{#if resumeData.resume.projects}
 			<Section title="Projects">
 				{#each resumeData.resume.projects as project}
-					<div class="flex flex-row items-end justify-between">
-						<div>
-							<span class="text-lg font-semibold"><a href={project.url}>{project.name}</a></span>
-							<span class="italic">{project.description}</span>
-						</div>
-						<div>
-							{#if project.startDate}
-								<div>
-									{@render dateRange({ startDate: project.startDate, endDate: project.endDate })}
-								</div>
-							{/if}
-						</div>
-					</div>
-					{#if project.highlights}
-						<div class="pl-4">
-							<ul class="list-disc text-justify">
-								{#each project.highlights as highlight}
-									<li>{highlight}</li>
-								{/each}
-							</ul>
-						</div>
-					{/if}
+					{@render item({
+						header: project.name,
+						subheader: project.description,
+						startDate: project.startDate,
+						endDate: project.endDate,
+						url: project.url,
+						location: undefined,
+						highlights: project.highlights
+					})}
 				{/each}
 			</Section>
 		{/if}
@@ -158,17 +180,15 @@
 		{#if resumeData.resume.awards}
 			<Section title="Awards & Certifications">
 				{#each resumeData.resume.awards as award}
-					<div class="flex flex-row items-end justify-between">
-						<div>
-							<span class="text-lg font-semibold">{award.title}</span>
-							<span class="italic">{award.awarder}</span>
-						</div>
-						{#if award.date}
-							<div>
-								<DateStr date={award.date} />
-							</div>
-						{/if}
-					</div>
+					{@render item({
+						header: award.title,
+						subheader: award.awarder,
+						startDate: award.date,
+						endDate: undefined,
+						location: undefined,
+						url: undefined,
+						highlights: undefined
+					})}
 					<div class="pl-4">
 						{award.summary}
 					</div>
