@@ -3,9 +3,9 @@
 Love showing off your skills but hate Microsoft Word/Google Docs/LaTeX/*other
 document processor here*?
 
-`svelte-resume` let's you write it once in `json` or `yaml`, then format it
-automatically using Svelte! Use one of ready-made resume layouts or write your
-own using the full power of Svelte and TailwindCSS.
+`svelte-resume` let's you write your resume once in `json` or `yaml`, then
+format it automatically using Svelte! Use one of our ready-made resume layouts
+or write your own using the full power of Svelte and TailwindCSS.
 
 `svelte-resume` proudly uses the [JSON Resume](https://jsonresume.org/schema)
 specification, so you only need to write your resume once and then gain access
@@ -32,7 +32,7 @@ slash.
 .env.local:
 
 ```env
-`RESUME_HOME="/path/to/your/resume/dir"`
+RESUME_HOME="/path/to/your/resume/dir"
 ```
 
 Now run the project:
