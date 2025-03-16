@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { RESUME_HOME } from '$env/static/private';
+import { RESUME_HOME, KEYWORDS_PATH } from '$env/static/private';
 import { glob } from 'fs/promises';
 import * as yaml from 'yaml';
 import { type Resume, resumeSchema } from '../../resume/';
@@ -13,6 +13,7 @@ export class FileExtError extends Error {
 }
 
 export const resumeHome = RESUME_HOME;
+export const keywordsPath = KEYWORDS_PATH ? KEYWORDS_PATH : "keywords.txt"
 
 export type Parser = (content: string) => Resume;
 
@@ -56,4 +57,11 @@ export const loadResume = (path: string): Resume => {
 	const contents = fs.readFileSync(fullPath).toString();
 
 	return parser(contents);
+};
+
+export const loadKeywords = (path: string): string[] => {
+	const fullPath = `${resumeHome}/${path}`;
+	const contents = fs.readFileSync(fullPath).toString();
+
+	return contents.split('\n').filter((item) => item.length > 0);
 };

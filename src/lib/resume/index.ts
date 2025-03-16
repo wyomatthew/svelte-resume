@@ -1,7 +1,6 @@
 import { z } from 'zod';
 
-export const iso8601Schema = z
-	.coerce
+export const iso8601Schema = z.coerce
 	.date()
 	.describe('ISO8601 date format: YYYY, YYYY-MM, or YYYY-MM-DD');
 
@@ -39,7 +38,10 @@ export const workItemSchema = z.object({
 	url: z.string().url().describe('e.g. http://facebook.example.com'),
 	startDate: iso8601Schema.optional(),
 	endDate: iso8601Schema.optional(),
-	summary: z.string().describe('Give an overview of your responsibilities at the company').optional(),
+	summary: z
+		.string()
+		.describe('Give an overview of your responsibilities at the company')
+		.optional(),
 	highlights: z
 		.array(
 			z.string().describe('e.g. Increased profits by 20% from 2011-2012 through viral advertising')
@@ -169,3 +171,8 @@ export const resumeSchema = z.object({
 });
 
 export type Resume = z.infer<typeof resumeSchema>;
+
+export type ResumeData = {
+	resume: Resume;
+	keywords: string[];
+};

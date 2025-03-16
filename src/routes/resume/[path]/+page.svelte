@@ -3,4 +3,4 @@
 	const { data } = $props();
 </script>
 
-<Simple resume={data.resume} />
+<Simple resumeData={data} />
