@@ -13,7 +13,7 @@ export class FileExtError extends Error {
 }
 
 export const resumeHome = RESUME_HOME;
-export const keywordsPath = KEYWORDS_PATH ? KEYWORDS_PATH : "keywords.txt"
+export const keywordsPath = KEYWORDS_PATH ? KEYWORDS_PATH : 'keywords.txt';
 
 export type Parser = (content: string) => Resume;
 
