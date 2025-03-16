@@ -1,6 +1,5 @@
 <script lang="ts">
-	import { type Snippet } from 'svelte';
-	import { educationItemSchema, type Resume } from '..';
+	import { type Resume } from '..';
 	import { Section, Profile } from '../components';
 	import DateStr from '../components/date_str.svelte';
 
@@ -66,35 +65,35 @@
 				</div>
 			{/each}
 		</Section>
+	{/if}
 
-		{#if resume.work}
-			<Section title="Experience">
-				{#each resume.work as work}
-					<div class="flex flex-row items-end justify-between">
-						<div>
-							<span class="text-lg font-semibold"><a href={work.url}>{work.name}</a></span>
-							<span class="italic">{work.position}</span>
-						</div>
-						<div>
-							{#if work.startDate}
-								<div>
-									{@render dateRange({ startDate: work.startDate, endDate: work.endDate })}
-								</div>
-							{/if}
-						</div>
+	{#if resume.work}
+		<Section title="Experience">
+			{#each resume.work as work}
+				<div class="flex flex-row items-end justify-between">
+					<div>
+						<span class="text-lg font-semibold"><a href={work.url}>{work.name}</a></span>
+						<span class="italic">{work.position}</span>
 					</div>
-					{#if work.highlights}
-						<div class="pl-4">
-							<ul class="list-disc text-justify">
-								{#each work.highlights as highlight}
-									<li>{highlight}</li>
-								{/each}
-							</ul>
-						</div>
-					{/if}
-				{/each}
-			</Section>
-		{/if}
+					<div>
+						{#if work.startDate}
+							<div>
+								{@render dateRange({ startDate: work.startDate, endDate: work.endDate })}
+							</div>
+						{/if}
+					</div>
+				</div>
+				{#if work.highlights}
+					<div class="pl-4">
+						<ul class="list-disc text-justify">
+							{#each work.highlights as highlight}
+								<li>{highlight}</li>
+							{/each}
+						</ul>
+					</div>
+				{/if}
+			{/each}
+		</Section>
 	{/if}
 
 	{#if resume.projects}
