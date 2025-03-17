@@ -76,7 +76,7 @@
 	</span>
 {/snippet}
 
-<div class="relative mx-auto h-full max-w-[8.5in] font-serif">
+<div style:line-height="1.0rem" class="relative mx-auto h-full max-w-[8.5in] font-serif">
 	<div
 		class="absolute z-[-1] h-full w-full text-[0.1rem] leading-0.5 text-white [writing-mode:vertical-lr]"
 	>
