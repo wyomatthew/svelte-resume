@@ -1,0 +1,15 @@
+version: 38
+jobs:
+- name: GitHub Mirror
+  steps:
+  - !PushRepository
+    name: GitHub Mirror
+    remoteUrl: https://github.com/wyomatthew/svelte-resume.git
+    userName: wyomatthew
+    passwordSecret: GITHUB_ACCESS_TOKEN
+    force: true
+    condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
+  retryCondition: never
+  maxRetries: 3
+  retryDelay: 30
+  timeout: 14400
