@@ -77,15 +77,10 @@
 {/snippet}
 
 <div style:line-height="1.0rem" class="relative mx-auto h-full max-w-[8.5in] font-serif">
-	<div
-		class="absolute z-[-1] h-full w-full text-[0.1rem] leading-0.5 text-white [writing-mode:vertical-lr]"
-	>
-		<div class="relative w-full">
-			<div class="absolute top-0 left-0 text-justify select-none">
-				{leftKeywords.join(' ')}
-			</div>
-			<div class="absolute top-0 right-0 text-justify select-none">
-				{rightKeywords.join(' ')}
+	<div class="absolute z-[-1] h-full w-full text-[0.1rem] leading-0.5 text-white">
+		<div class="relative h-full w-full">
+			<div class="absolute bottom-0 text-justify select-none">
+				{resumeData.keywords.join(' ')}
 			</div>
 		</div>
 	</div>
