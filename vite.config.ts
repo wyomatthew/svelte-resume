@@ -6,6 +6,20 @@ import { defineConfig } from 'vite';
 export default defineConfig({
 	plugins: [tailwindcss(), sveltekit()],
 
+	optimizeDeps: {
+		exclude: [
+			'svelte-codemirror-editor',
+			'@codemirror',
+			'@codemirror/lang-yaml',
+			'@codemirror/lang-json',
+			'@codemirror/basic-setup',
+			'@codemirror/state',
+			'@codemirror/view',
+			'@codemirror/commands',
+			'@codemirror/language',
+			/* ... */
+		]
+	},
 	test: {
 		workspace: [
 			{
