@@ -7,6 +7,7 @@
 	import * as yaml from 'yaml';
 	import { resumeSchema } from '$lib/resume';
 	import { Simple } from '$lib/resume/layouts';
+	import { onMount } from 'svelte';
 
 	const supportedLangs = {
 		yaml: {
@@ -46,6 +47,11 @@
 	}
 
 	let code = $state('');
+	async function loadCode() {
+		const response = await fetch('/default.json');
+		code = await response.text();
+	}
+	onMount(loadCode);
 	let selectedLang = $state(supportedLangs.yaml);
 	let intermediateParse = $derived(safeIntParse(code));
 	let parseResult = $derived(

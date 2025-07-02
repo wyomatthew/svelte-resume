@@ -1,0 +1,228 @@
+{
+  "awards": [
+    {
+      "awarder": "IBM YourLearning",
+      "date": "2025-05-01",
+      "summary": "Awarded for completion of Amazon Web Services (AWS) course covering services, security, architecture, pricing, and support.",
+      "title": "AWS Cloud Practitioner Essentials"
+    },
+    {
+      "awarder": "SANS Institute",
+      "date": "2023-12-14",
+      "summary": "Issued for completing \"Enterprise Penetration Testing\" and passing the GIAC certification exam.",
+      "title": "GIAC Penetration Tester"
+    },
+    {
+      "awarder": "University of Pennsylvania",
+      "date": "2023-05-20",
+      "summary": "Issued after completing high level course work in the Spanish language department with an A grade.",
+      "title": "Certificate of Spanish Language"
+    }
+  ],
+  "basics": {
+    "email": "myemail@gmail.com",
+    "label": "Software Engineer",
+    "location": {
+      "address": "555 E South St",
+      "city": "Austin",
+      "countryCode": "US",
+      "postalCode": "TX 78752",
+      "region": "Texas"
+    },
+    "name": "Firstname Lastname",
+    "phone": "(555) 555-5555",
+    "profiles": [],
+    "url": "https://mywebsite.dev/"
+  },
+  "education": [
+    {
+      "area": "Computer & Information Science",
+      "courses": [
+        "Artificial Intelligence",
+        "Big Data Analytics",
+        "Applied Machine Learning",
+        "Database and Information Systems",
+        "Ethical Algorithm Design",
+        "Computer Organization and Design",
+        "Product Design",
+        "Introduction to Algorithms"
+      ],
+      "endDate": "2023-05-01",
+      "institution": "University of Pennsylvania",
+      "score": "3.85/4.00",
+      "startDate": "2019-08-01",
+      "studyType": "Bachelor's",
+      "url": "https://www.upenn.edu/"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Piano"
+    },
+    {
+      "name": "Creative Writing"
+    },
+    {
+      "name": "Self-Hosted Software"
+    },
+    {
+      "name": "Home Automation"
+    },
+    {
+      "name": "CLI-based Editors"
+    },
+    {
+      "name": "Motorcycles"
+    }
+  ],
+  "meta": {
+    "canonical": "https://github.com/me/resumes",
+    "lastModified": "2025-03-13 17:45:00",
+    "version": "v1.0.0"
+  },
+  "projects": [
+    {
+      "description": "This resume was formatted using TailwindCSS. Yours could be too!",
+      "entity": "Personal Project",
+      "highlights": [
+        "Built framework on top of the open JSON Resume standard schema for developers to build custom resume layouts using Svelte and TailwindCSS. Allows users to write a resume once in YAML/JSON then format it to static HTML or export to PDF."
+      ],
+      "name": "SvelteResume",
+      "startDate": "2025-03-01",
+      "type": "application",
+      "url": "https://github.com/myprofile/myproject"
+    },
+    {
+      "description": "A self-hosted, fully-automated streaming service",
+      "entity": "Personal Project",
+      "highlights": [
+        "Built self-hosted media server using Docker Compose, automating streaming and content management. Secured network boundaries and instrumented full-stack observability, resulting in 99.9% uptime for 30+ weekly users."
+      ],
+      "name": "Selflix",
+      "startDate": "2024-06-01",
+      "type": "application",
+      "url": "https://github.com/myprofile/myproject"
+    },
+    {
+      "description": "A word-vector embedding for machine-generated reference codes",
+      "endDate": "2023-05-15",
+      "entity": "University of Pennsylvania",
+      "highlights": [
+        "Completed honors thesis for the University of Pennsylvania. Introduced novel application of Natural Language Processing (NLP) word embedding techniques to machine-generated reference codes. Awarded maximum result for undergraduate thesis."
+      ],
+      "name": "Codes2Vectors",
+      "startDate": "2022-09-01",
+      "type": "thesis",
+      "url": "https://github.com/myprofile/myproject"
+    }
+  ],
+  "skills": [
+    {
+      "keywords": [
+        "Python",
+        "Java",
+        "Go",
+        "C",
+        "JavaScript",
+        "TypeScript",
+        "Rust",
+        "Docker",
+        "Kubernetes",
+        "REST",
+        "gRPC",
+        "Open Source"
+      ],
+      "level": "Master",
+      "name": "Software Development"
+    },
+    {
+      "keywords": [
+        "Crowdstrike Falcon",
+        "Uptycs",
+        "Jamf",
+        "Microsoft Defender Endpoint",
+        "Metasploit",
+        "Nmap",
+        "Mimikatz",
+        "Shodan"
+      ],
+      "level": "Master",
+      "name": "Cybersecurity Applications"
+    },
+    {
+      "keywords": [
+        "Docker",
+        "Kubernetes",
+        "Travis CI",
+        "IBM Cloud",
+        "Microsoft Azure",
+        "Amazon Web Services (AWS)",
+        "Cloudflare"
+      ],
+      "level": "Master",
+      "name": "Application Deployment"
+    }
+  ],
+  "work": [
+    {
+      "highlights": [
+        "Engineered RESTful FastAPI backend system for compliance case ingestion by implementing horizontally scalable infrastructure and streaming protocol, reducing average user latency by ~40s and reducing end-to-end case ingestion latency by ~20 hours.",
+        "Developed recurring cron application to retrieve latest Common Vulnerabilities and Exposures (CVEs) by ingesting open data into queryable vector database, reducing average latency in remediating vulnerable applications by 40%.",
+        "Managed cloud integration and delivery pipelines for custom and open-source applications by introducing build caching and parallel version promotion, achieving >99.9% application availability and reducing end-to-end build times by ~30 minutes.",
+        "Deployed and configured open source automation platform n8n on Cloud for security personnel to build custom workflows and contributed custom connector to project source to integrate with IBM Cloud hosting, saving $10,000+/month on licensing.",
+        "Wrote backend network gateway and IAM authentication layer to enable secure communication between internet-facing Cloud resources and internal business systems which was adopted by >90% of applications across the organization for critical workflows."
+      ],
+      "location": "Austin, TX",
+      "name": "IBM",
+      "position": "Software Engineer",
+      "startDate": "2023-04-01",
+      "url": "https://www.ibm.com/"
+    },
+    {
+      "endDate": "2023-04-01",
+      "highlights": [
+        "Designed and maintained database at scale of 1,000,000+ records for work item and user management. Automated regular creation of reports on classifier performance, user interactions, and work item end behavior.",
+        "Refactored and optimized legacy codebase concerning automated anomaly detection over server workloads, reducing end-to-end batch processing time from 8 hours to 30 minutes and achieving 100% documentation coverage on public API."
+      ],
+      "location": "Austin, TX",
+      "name": "IBM",
+      "position": "Software Engineer Intern",
+      "startDate": "2022-01-01",
+      "url": "https://www.ibm.com/"
+    },
+    {
+      "endDate": "2023-05-20",
+      "highlights": [
+        "Headed assistant staff of CIS 3200 Introduction to Algorithms. Held office hours, designed problem sets, wrote solution sets, and led review sessions. Provisioned and configured Cloud resources in AWS, including DynamoDB and EC2."
+      ],
+      "location": "Philadelphia, PA",
+      "name": "University of Pennsylvania",
+      "position": "Head Teaching Assistant",
+      "startDate": "2022-09-01",
+      "url": "https://upenn.edu/"
+    },
+    {
+      "endDate": "2022-01-01",
+      "highlights": [
+        "Coordinated data with Children's Hospital of Philadelphia by designing and implementing Python script to anonymize patient data, removing 20+ hours of manual data entry from each month’s workflow. Wrote monthly analytical memo analyzing data."
+      ],
+      "location": "Philadelphia, PA",
+      "name": "Netter Center for Community Partnerships",
+      "position": "Research Assistant",
+      "startDate": "2020-12-01",
+      "url": "https://www.nettercenter.upenn.edu/"
+    },
+    {
+      "endDate": "2021-08-30",
+      "highlights": [
+        "Designed and instructed 6-week curriculum to introduce English Language Learners to the fundamentals of computer science and software development. Led cohort of 8 interns to complete machine learning task and present to program investors."
+      ],
+      "location": "Chelsea, MA",
+      "name": "La Colaborativa",
+      "position": "Software Development Program Facilitator",
+      "startDate": "2021-06-01",
+      "url": "https://la-colaborativa.org/"
+    }
+  ]
+}
+
