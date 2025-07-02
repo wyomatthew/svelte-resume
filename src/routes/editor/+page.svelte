@@ -48,7 +48,7 @@
 
 	let code = $state('');
 	async function loadCode() {
-		const response = await fetch('/default.json');
+		const response = await fetch('/default.yaml');
 		code = await response.text();
 	}
 	onMount(loadCode);
